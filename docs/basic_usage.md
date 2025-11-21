@@ -24,7 +24,7 @@ class MyModule(nn.Module):
     def forward(self, x):
         return F.relu(F.max_pool2d(self.conv1(x), 2))
 
-# 'arguments' are input to a graph
+# 'arguments' are inputs to a graph
 arr = ndx.argument(shape=("N", 1, 28, 28), dtype=ndx.float32)
 # Wrap the resulting ndonnx array in a pytorch_ndonnx.Tensor
 tensor = tx.Tensor(arr)
