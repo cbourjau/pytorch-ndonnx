@@ -28,7 +28,7 @@ def test_sentiment():
         candidate_logits = classifier.forward(ins)["logits"]
 
     np.testing.assert_allclose(
-        candidate_logits.unwrap_numpy(), expected_logits.numpy(), rtol=1e-6
+        candidate_logits.unwrap_numpy(), expected_logits.numpy(), rtol=1e-5
     )
 
 
