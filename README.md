@@ -6,7 +6,7 @@
 `pytorch-ndonnx` is a library that can be used to convert pytorch models to ONNX.
 It is based on [ndonnx](https://github.com/Quantco/ndonnx).
 
-Conversion is achieved by simply ducktyping existing code using a `pytorch_ndonnx.Tensor` object.
+Conversion is achieved by ducktyping existing code using a `pytorch_ndonnx.Tensor` object.
 
 ## Installation
 
