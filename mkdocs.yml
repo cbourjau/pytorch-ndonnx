@@ -1,0 +1,83 @@
+site_name: pytorch-ndonnx
+site_description: Pytorch-to-ONNX converters based on ndonnx
+site_url: https://pytorch-ndonnx.readthedocs.io/en/latest
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+    - navigation.tabs
+  icon:
+    repo: fontawesome/brands/github-alt
+    edit: material/pencil
+repo_name: cbourjau/pytorch-ndonnx
+repo_url: https://github.com/cbourjau/pytorch-ndonnx
+edit_uri: edit/main/docs/
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          inventories:
+            - https://numpy.org/doc/stable/objects.inv
+            - https://ndonnx.readthedocs.io/en/latest/objects.inv
+            - https://docs.pytorch.org/docs/stable/objects.inv
+          # https://mkdocstrings.github.io/python
+          paths: [pytorch_ndonnx]
+          options:
+            filters:
+              - "!^_" # Disable all single underscore methods ("protected")
+              - "^__" # re-enable double underscore methods ("dunder")
+            extensions:
+              - griffe_inherited_docstrings:
+                  merge: true
+            allow_inspection: true
+            members_order: alphabetical
+            signature_crossrefs: true
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            show_signature: true
+            show_source: false
+            show_symbol_type_heading: true
+            docstring_style: numpy
+            docstring_section_style: list
+            separate_signature: true
+            merge_init_into_class: true
+            inherited_members: true
+
+nav:
+  - Welcome: index.md
+  - Basic usage: basic_usage.md
+  - API documentation:
+      - Tensor: tensor.md
+      - Supported Pytorch functions: pytorch_functions.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true

@@ -1,0 +1,77 @@
+[workspace]
+name = "pytorch-ndonnx"
+description = "Pytorch-to-ONNX converters based on ndonnx"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64", "linux-aarch64", "win-64"]
+
+[tasks]
+postinstall = "pip install --no-build-isolation --no-deps --disable-pip-version-check -e ."
+build-wheel = "hatch build -t wheel"
+
+[dependencies]
+expecttest = ">=0.3.0,<0.4"
+hatch = "*"
+hatchling = "*"
+ndonnx = ">=0.14.0"
+onnxruntime = ">=1.20.1,<2"
+onnxscript = ">=0.5.6"
+pillow = ">=11.1.0,<12"
+pip = "*"
+python = ">=3.10"
+pytorch = ">=2.6.0,<3"
+spox = ">=0.16.0"
+torchvision = ">=0.21.0"
+transformers = ">=4.51.3,<5"
+typing_extensions = ">=4.15.0,<5"
+
+[feature.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+mkdocstrings = "*"
+mkdocstrings-python = "*"
+griffe-inherited-docstrings = "*"
+ruff = "*"
+[feature.docs.tasks]
+docs = "mkdocs serve"
+docs-build = "mkdocs build --strict"
+
+[feature.test.dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-md = "*"
+pytest-emoji = "*"
+mypy = "<1.17|>1.18.2" # https://github.com/python/mypy/issues/20015
+[feature.test.tasks]
+test = "pytest"
+test-coverage = "pytest --cov=pytorch_ndonnx --cov-report=xml --cov-report=term-missing"
+
+[feature.lint.dependencies]
+pre-commit = "*"
+docformatter = "*"
+ruff = "*"
+prettier = "*"
+nbstripout = "*"
+taplo = "*"
+pre-commit-hooks = "*"
+typos = "*"
+[feature.lint.tasks]
+pre-commit-install = "pre-commit install"
+pre-commit-run = "pre-commit run -a"
+
+[feature.py310.dependencies]
+python = "3.10.*"
+[feature.py311.dependencies]
+python = "3.11.*"
+[feature.py312.dependencies]
+python = "3.12.*"
+[feature.py313.dependencies]
+python = "3.13.*"
+
+[environments]
+default = ["test"]
+py310 = ["py310", "test"]
+py311 = ["py311", "test"]
+py312 = ["py312", "test"]
+py313 = ["py313", "test"]
+docs = ["docs"]
+lint = { features = ["lint"], no-default-feature = true }

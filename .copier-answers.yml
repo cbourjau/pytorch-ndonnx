@@ -1,0 +1,22 @@
+# This file is managed by Copier; DO NOT EDIT OR REMOVE.
+_commit: v0.15.4
+_src_path: git@github.com:Quantco/copier-template-python.git
+add_windows_tests_to_ci: true
+application: false
+build_conda_package: false
+build_docs: true
+github_url: https://github.com/cbourjau/pytorch-ndonnx
+github_user: cbourjau
+lint_sql_dialect: none
+minimal_python_version: py310
+pixi_build: false
+project_short_description: Pytorch-to-ONNX converters based on ndonnx
+project_slug: pytorch-ndonnx
+run_daily_tests: false
+strip_jupyter_notebook_output: true
+test_against_nightlies: false
+use_committed: false
+use_conda_comply: false
+use_conventional_commits: false
+use_devcontainer: false
+use_mkdocs: true
