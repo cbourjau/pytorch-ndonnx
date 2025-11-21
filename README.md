@@ -1,7 +1,7 @@
 # pytorch-ndonnx
 
 [![CI](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/ci.yml)
-[![Documentation](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/docs.yml)
+[![Documentation](https://app.readthedocs.org/projects/pytorch-ndonnx/badge/?version=latest)](https://pytorch-ndonnx.readthedocs.io/en/latest/)
 
 Pytorch-to-ONNX converters based on ndonnx.
 Conversion is achieved by simply ducktypign existing code using a `pytorch_ndonnx.Tensor` object.
