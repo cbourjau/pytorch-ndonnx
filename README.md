@@ -1,12 +1,26 @@
 # pytorch-ndonnx
 
 [![CI](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/ci.yml)
-[![Documentation](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/cbourjau/pytorch-ndonnx/actions/workflows/docs.yml)
+[![Documentation](https://app.readthedocs.org/projects/pytorch-ndonnx/badge/?version=latest)](https://pytorch-ndonnx.readthedocs.io/en/latest/)
 
-Pytorch-to-ONNX converters based on ndonnx.
-Conversion is achieved by simply ducktypign existing code using a `pytorch_ndonnx.Tensor` object.
+`pytorch-ndonnx` is a library that can be used to convert pytorch models to ONNX.
+It is based on [ndonnx](https://github.com/Quantco/ndonnx).
+
+Conversion is achieved by simply ducktyping existing code using a `pytorch_ndonnx.Tensor` object.
 
 ## Installation
+
+### PyPI
+
+```bash
+pip install pytorch-ndonnx
+```
+
+### conda-forge
+
+Coming soon
+
+### Development
 
 You can install the package in development mode using:
 
@@ -36,7 +50,7 @@ class MyModule(nn.Module):
     def forward(self, x):
         return F.relu(F.max_pool2d(self.conv1(x), 2))
 
-# 'arguments' are input to a graph
+# 'arguments' are inputs to a graph
 arr = ndx.argument(shape=("N", 1, 28, 28), dtype=ndx.float32)
 # Wrap the resulting ndonnx array in a pytorch_ndonnx.Tensor
 tensor = tx.Tensor(arr)
