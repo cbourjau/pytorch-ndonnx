@@ -8,6 +8,18 @@ Conversion is achieved by simply ducktypign existing code using a `pytorch_ndonn
 
 ## Installation
 
+### PyPI
+
+```bash
+pip install pytorch-ndonnx
+```
+
+### conda-forge
+
+Coming soon
+
+### Development
+
 You can install the package in development mode using:
 
 ```bash
